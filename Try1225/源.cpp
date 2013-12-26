@@ -6,16 +6,16 @@
 using namespace std;
 
 void main(){
-	cout<<"Hello World!"<<endl;
-	cout<<"___________________________________\n\n";
-	//1
+  showtitle();
+  longline(1);
+    // 1
 
 
 
 
 
 
-	system("pause");
+  system("pause");
 
 }
 
