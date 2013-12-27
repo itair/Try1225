@@ -3,12 +3,16 @@
 // Try to use Google C++ programing style                                      
 #include "标头.h"
 #include <iostream>
+#include <string>
 #include <array>
 #include <vector>
+#include <list>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
 
-
+const bool greater10000 (Patron value) { return value.money > 10000 ;}
 
 void main()
 {
@@ -51,7 +55,7 @@ void main()
   // cin 条件判断 识别数字..
     longline(3);
     //3
-    char chh;
+  //  char chh;
   //  string option("");
   //  cout << "Please enter one of the following choices:\n"
   //     << "c) carnivore        p) pianist \n"
@@ -121,20 +125,53 @@ void main()
     //蛋疼的vs 不支持 arrray 列表式初始化
     longline(5);
     //5
-    double incomes(0.0), tax (0.0);
-    cout << " Neutronia need Tax! \n"
-         << " Show me your money: \n";
-    //cin.get();
-    while(cin>>incomes) {
-        tax = ((incomes > 5000) * 0.1 * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
-               + ((incomes > 15000) * 0.15 * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
-               + ((incomes > 35000) * 0.2 * (incomes - 35000));  
-     //tax += incomes < 5000 ?  0 : ( incomes < 15001 ? ( incomes - 5000)*0.1 :(incomes < 35001 ? (incomes-15000)*
-        cout << "Your tax : " << tax << endl;
-    }
+    //double incomes(0.0), tax (0.0);
+    //cout << " Neutronia need Tax! \n"
+    //     << " Show me your money: \n";
+    ////cin.get();
+    //while(cin>>incomes) {
+    //    tax = ((incomes > 5000) * 0.1 * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
+    //           + ((incomes > 15000) * 0.15 * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
+    //           + ((incomes > 35000) * 0.2 * (incomes - 35000));  
+    // //tax += incomes < 5000 ?  0 : ( incomes < 15001 ? ( incomes - 5000)*0.1 :(incomes < 35001 ? (incomes-15000)*
+    //    cout << "Your tax : " << tax << endl;
+    //}
     //条件转向 嵌套的几种方法  if 嵌套, switch的变形, 正则表达, ? :嵌套 etc
     longline(6);
     //6
+    list<Patron> donars;
+    list<Patron> nor_donars;
+    list<Patron>::iterator iter;
+    Patron dos;
+    int number;
+        cout << "Enter the number of donars." << endl;
+    cin >> number ;    
+    for (int i = 0; i < number; i++)  {         
+        cin.get();
+        cout << "Enter donar #" << i << "'s name: ";
+        getline(cin, dos.name);
+        cout << "Enter donar #" << i << "'s money: ";
+        cin >> dos.money;
+        donars.push_back(dos);
+    }
+    iter = stable_partition(donars.begin(), donars.end(), greater10000);
+    nor_donars.splice(nor_donars.begin(), donars, iter, donars.end());
+    cout << "\nGrand Parions:\n";
+    if (donars.empty()) cout << "none.\n";    
+    while (!donars.empty()){
+        dos = donars.front();
+        cout << dos.name << "\t" << dos.money << endl;
+        donars.pop_front();
+    }
+     cout << "\nParions:\n";
+    if (nor_donars.empty()) cout << "none.\n";    
+    while (!nor_donars.empty()){
+        dos = nor_donars.front();
+        cout << dos.name << "\t" << dos.money << endl;
+        nor_donars.pop_front();
+    }
+    //
+    longline(7);
 
 
     system("pause");

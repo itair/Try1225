@@ -11,18 +11,22 @@ const int kStrSize = 40;
 const int kPobNum = 5;
 
 inline void showtitle(void) { std::cout<< "C++_Primer_Plus\n"
-  << "    by itAir\n"<< "Hello World!\n"; }           
+                                        << "    by itAir\n"<< "Hello World!\n"; }           
 
 inline void longline(void) { std::cout<< "________________________________\n\n"; }  
 inline void longline(const int i) { std::cout<<i<< ".______________________________\n\n"; } 
 
 struct Bop {
-  char fullname[kStrSize]; //real name
-  char title[kStrSize];    // job title
-  char bopname[kStrSize];   // secret BOP name
-  int preference;           // 0 = full name , 1 = title , 2 = bopname
+    char fullname[kStrSize]; //real name
+    char title[kStrSize];    // job title
+    char bopname[kStrSize];   // secret BOP name
+    int preference;           // 0 = full name , 1 = title , 2 = bopname
 };
 
+struct Patron {
+    std::string name;
+    double money;
+};
 
 
 
