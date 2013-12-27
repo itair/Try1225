@@ -4,10 +4,11 @@
 #include "标头.h"
 #include <iostream>
 #include <array>
+#include <vector>
 
 using namespace std;
 
-const int kMAX_NUM = 10;
+
 
 void main(){
   showtitle();
@@ -70,6 +71,49 @@ void main(){
   //
   longline(4);
   //4
+  char chhh;
+  Bop bop_Sue[kPobNum]=
+         {{"Sue Horpkings", "CTO_OnChiefe",     "D-girl",     2},
+         {"Wimp Macho",    "Junior Programer", "HeilBOY",    1},
+         {"Arthur Itair",  "Amatuer",          "Catsharp",   2},
+        {"Raki Rhodes",   "MIPS",             "LOOPer",     0},
+        {"Hoppy Hipman",  "Analyst Trainee",  "Pat Hand",   2}};
+  cout << "Benevolent Order of Programmers Report\n"
+       << "a. display by name       b. display by title \n"
+       << "c. display by bopname    d. display by preference \n"
+       << "q. quit \n" << "Enter your chice: ";
+  cin.get(); 
+  while (cin.read(&chhh,1) && chhh != 'q')  {
+    switch (chhh)  {
+    case 'a':
+      for (int i = 0; i < kPobNum; i++)  cout << bop_Sue[i].fullname << endl;
+      break;
+    case 'b':
+      for (int i = 0; i < kPobNum; i++)  cout << bop_Sue[i].title << endl;
+      break;
+    case 'c':
+      for (int i = 0; i < kPobNum; i++)  cout << bop_Sue[i].bopname << endl;
+      break;
+    case 'd':
+      for (int i = 0; i < kPobNum; i++) {
+        switch (bop_Sue[i].preference) {
+        case 0: cout << bop_Sue[i].fullname << endl; break;
+        case 1: cout << bop_Sue[i].title << endl; break;
+        case 2: cout << bop_Sue[i].bopname << endl; break;
+        default: cout << bop_Sue[i].fullname << " has no preference.\n\n"; break;
+        }
+      }
+      break;
+    default:
+      cout << "Invaild char....\n";
+    	break;
+    }
+    cout << "\nNext choice:";
+    cin.clear();
+  }
+//蛋疼的vs 不支持 arrray 列表式初始化
+  longline(5);
+  //5
 
 
 
