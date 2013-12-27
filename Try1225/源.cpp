@@ -52,27 +52,27 @@ void main()
     longline(3);
     //3
     char chh;
-    string option("");
-    cout << "Please enter one of the following choices:\n"
-       << "c) carnivore        p) pianist \n"
-       << "t) tree             g) game \n";
-    while (cin.get(chh)) {
-        switch (chh)  {
-            case 'c': option = "carnivore" ; break;
-            case 'p': option = "pianist"  ; break;
-            case 't': option = "tree" ; break;
-            case 'g': option = "game" ; break;
-            default:  break; 
-        }
-        if (!option.empty()) break;
-        cout << "Please enter a c, p, t, or g:";
-        cin.get();
-  }
-    cout << "A maple is a " << option << endl;
+  //  string option("");
+  //  cout << "Please enter one of the following choices:\n"
+  //     << "c) carnivore        p) pianist \n"
+  //     << "t) tree             g) game \n";
+  //  while (cin.get(chh)) {
+  //      switch (chh)  {
+  //          case 'c': option = "carnivore" ; break;
+  //          case 'p': option = "pianist"  ; break;
+  //          case 't': option = "tree" ; break;
+  //          case 'g': option = "game" ; break;
+  //          default:  break; 
+  //      }
+  //      if (!option.empty()) break;
+  //      cout << "Please enter a c, p, t, or g:";
+  //      cin.get();
+  //}
+  //  cout << "A maple is a " << option << endl;
     //
     longline(4);
     //4
-    char chhh;
+ /*   char chhh;
     Bop bop_Sue[kPobNum]=
          {{"Sue Horpkings", "CTO_OnChiefe",     "D-girl",     2},
          {"Wimp Macho",    "Junior Programer", "HeilBOY",    1},
@@ -117,23 +117,24 @@ void main()
         }
         cout << "\nNext choice:";
         cin.clear();
-    }
+    }*/
     //蛋疼的vs 不支持 arrray 列表式初始化
     longline(5);
     //5
     double incomes(0.0), tax (0.0);
     cout << " Neutronia need Tax! \n"
          << " Show me your money: \n";
-    cin.get();
+    //cin.get();
     while(cin>>incomes) {
-        tax =  incomes * ((incomes > 5000) * 0.1 + 
-                          (incomes > 1500 )* 0.05 +
-                          (incomes > 3500) * 0.05);    
+        tax = ((incomes > 5000) * 0.1 * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
+               + ((incomes > 15000) * 0.15 * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
+               + ((incomes > 35000) * 0.2 * (incomes - 35000));  
+     //tax += incomes < 5000 ?  0 : ( incomes < 15001 ? ( incomes - 5000)*0.1 :(incomes < 35001 ? (incomes-15000)*
         cout << "Your tax : " << tax << endl;
     }
-    //
+    //条件转向 嵌套的几种方法  if 嵌套, switch的变形, 正则表达, ? :嵌套 etc
     longline(6);
-
+    //6
 
 
     system("pause");
