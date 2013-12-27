@@ -10,9 +10,10 @@ using namespace std;
 
 
 
-void main(){
-  showtitle();
-  longline(1);
+void main()
+{
+    showtitle();
+    longline(1);
   // 1
 //   char ch;
 //   string buffer("");
@@ -27,14 +28,14 @@ void main(){
 //   }
 //   cout << endl << buffer;
   // cctype 库函数 if条件嵌套
-  longline(2);
+    longline(2);
   //2
-//   double donation(0.0), sum(0.0);
-//   int num(0), higher(0);
-//   array<double ,kMAX_NUM> money;
-//   money.fill(0.0);
-//   cout << "Enter at most" << kMAX_NUM << " donations :\n";
-//   while (cin >> donation)  {
+//     double donation(0.0), sum(0.0);
+//     int num(0), higher(0);
+//      array<double ,kMAX_NUM> money;
+//      money.fill(0.0);
+//       cout << "Enter at most" << kMAX_NUM << " donations :\n";
+//      while (cin >> donation)  {
 //     num++;
 //     money.at(num) = donation;
 //     sum += donation;
@@ -48,77 +49,94 @@ void main(){
 //     << "There are " << higher 
 //     << " donations higher than the average " << donation << endl;
   // cin 条件判断 识别数字..
-  longline(3);
-  //3
-  char chh;
-  string option("");
-  cout << "Please enter one of the following choices:\n"
+    longline(3);
+    //3
+    char chh;
+    string option("");
+    cout << "Please enter one of the following choices:\n"
        << "c) carnivore        p) pianist \n"
        << "t) tree             g) game \n";
-  while (cin.get(chh)) {
-    switch (chh)  {
-    case 'c': option = "carnivore" ; break;
-    case 'p': option = "pianist"  ; break;
-    case 't': option = "tree" ; break;
-    case 'g': option = "game" ; break;
-    default:  break; 
-    }
-    if (!option.empty()) break;
-    cout << "Please enter a c, p, t, or g:";
-    cin.get();
+    while (cin.get(chh)) {
+        switch (chh)  {
+            case 'c': option = "carnivore" ; break;
+            case 'p': option = "pianist"  ; break;
+            case 't': option = "tree" ; break;
+            case 'g': option = "game" ; break;
+            default:  break; 
+        }
+        if (!option.empty()) break;
+        cout << "Please enter a c, p, t, or g:";
+        cin.get();
   }
-  cout << "A maple is a " << option << endl;
-  //
-  longline(4);
-  //4
-  char chhh;
-  Bop bop_Sue[kPobNum]=
+    cout << "A maple is a " << option << endl;
+    //
+    longline(4);
+    //4
+    char chhh;
+    Bop bop_Sue[kPobNum]=
          {{"Sue Horpkings", "CTO_OnChiefe",     "D-girl",     2},
          {"Wimp Macho",    "Junior Programer", "HeilBOY",    1},
          {"Arthur Itair",  "Amatuer",          "Catsharp",   2},
-        {"Raki Rhodes",   "MIPS",             "LOOPer",     0},
-        {"Hoppy Hipman",  "Analyst Trainee",  "Pat Hand",   2}};
-  cout << "Benevolent Order of Programmers Report\n"
-       << "a. display by name       b. display by title \n"
-       << "c. display by bopname    d. display by preference \n"
-       << "q. quit \n" << "Enter your chice: ";
-  cin.get(); 
-  while (cin.read(&chhh,1) && chhh != 'q')  {
-    switch (chhh)  {
-    case 'a':
-      for (int i = 0; i < kPobNum; i++)  cout << bop_Sue[i].fullname << endl;
-      break;
-    case 'b':
-      for (int i = 0; i < kPobNum; i++)  cout << bop_Sue[i].title << endl;
-      break;
-    case 'c':
-      for (int i = 0; i < kPobNum; i++)  cout << bop_Sue[i].bopname << endl;
-      break;
-    case 'd':
-      for (int i = 0; i < kPobNum; i++) {
-        switch (bop_Sue[i].preference) {
-        case 0: cout << bop_Sue[i].fullname << endl; break;
-        case 1: cout << bop_Sue[i].title << endl; break;
-        case 2: cout << bop_Sue[i].bopname << endl; break;
-        default: cout << bop_Sue[i].fullname << " has no preference.\n\n"; break;
+         {"Raki Rhodes",   "MIPS",             "LOOPer",     0},
+         {"Hoppy Hipman",  "Analyst Trainee",  "Pat Hand",   2}};
+
+    cout << "Benevolent Order of Programmers Report\n"
+         << "a. display by name       b. display by title \n"
+         << "c. display by bopname    d. display by preference \n"
+         << "q. quit \n" << "Enter your chice: ";
+
+    cin.get(); 
+    while (cin.read(&chhh,1) && chhh != 'q')  {
+        switch (chhh)  {
+            case 'a':
+                for (int i = 0; i < kPobNum; i++) 
+                    cout << bop_Sue[i].fullname << endl; break;
+            case 'b':
+                for (int i = 0; i < kPobNum; i++) 
+                    cout << bop_Sue[i].title << endl;    break;
+            case 'c':
+                for (int i = 0; i < kPobNum; i++)
+                    cout << bop_Sue[i].bopname << endl;  break;
+            case 'd':
+                for (int i = 0; i < kPobNum; i++) {
+                    switch (bop_Sue[i].preference) {
+                        case 0: 
+                            cout << bop_Sue[i].fullname << endl;   break;
+                        case 1: 
+                            cout << bop_Sue[i].title << endl;      break;
+                        case 2: 
+                            cout << bop_Sue[i].bopname << endl;    break;
+                        default: 
+                            cout << bop_Sue[i].fullname << " has no preference.\n\n"; 
+                            break;
+                    }
+                }
+                break;
+            default:
+                cout << "Invaild char....\n";     break;
         }
-      }
-      break;
-    default:
-      cout << "Invaild char....\n";
-    	break;
+        cout << "\nNext choice:";
+        cin.clear();
     }
-    cout << "\nNext choice:";
-    cin.clear();
-  }
-//蛋疼的vs 不支持 arrray 列表式初始化
-  longline(5);
-  //5
+    //蛋疼的vs 不支持 arrray 列表式初始化
+    longline(5);
+    //5
+    double incomes(0.0), tax (0.0);
+    cout << " Neutronia need Tax! \n"
+         << " Show me your money: \n";
+    cin.get();
+    while(cin>>incomes) {
+        tax =  incomes * ((incomes > 5000) * 0.1 + 
+                          (incomes > 1500 )* 0.05 +
+                          (incomes > 3500) * 0.05);    
+        cout << "Your tax : " << tax << endl;
+    }
+    //
+    longline(6);
 
 
 
-
-  system("pause");
+    system("pause");
 
 }
 
