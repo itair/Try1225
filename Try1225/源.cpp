@@ -212,7 +212,46 @@ void main()
     }
     pf.close();
     cout << "\nTolal char : " << count <<endl;
-    //
+    //文件流 操作....
+    longline(9);
+    //9
+    list<Patron> donars_;
+    list<Patron> nor_donars_;
+    list<Patron>::iterator iter_;
+    Patron dos_;
+    int number_;
+    ifstream pff;
+    pff.open("donars.txt");
+    if(!pff.is_open()) { 
+        cout << "donars.txt 打开错误!\n";
+        system("pause");
+        exit(EXIT_FAILURE);
+    }
+    while (pff.good()){
+        getline(pff, dos_.name);
+        pff >> dos_.money;
+        donars_.push_back(dos_);
+        pff.get();
+    }
+    number_ = donars_.size();    
+    iter_ = stable_partition(donars_.begin(), donars_.end(), greater10000);
+    nor_donars_.splice(nor_donars_.begin(), donars_, iter_, donars_.end());
+    cout << "The number of donars is " << number_ << endl;
+    cout << "\nGrand Parions:\n";
+    if (donars_.empty()) cout << "none.\n";    
+    while (!donars_.empty()) {
+        dos_ = donars_.front();
+        cout << dos_.name << "\t" << dos_.money << endl;
+        donars_.pop_front();
+    }
+    cout << "\nParions:\n";
+    if (nor_donars_.empty()) cout << "none.\n";    
+    while (!nor_donars_.empty()) {
+        dos_ = nor_donars_.front();
+        cout << dos_.name << "\t" << dos_.money << endl;
+        nor_donars_.pop_front();
+    }
+    //文件流读取格式化....
     longline();
     system("pause");
 
