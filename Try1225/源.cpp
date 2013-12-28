@@ -139,40 +139,58 @@ void main()
     //条件转向 嵌套的几种方法  if 嵌套, switch的变形, 正则表达, ? :嵌套 etc
     longline(6);
     //6
-    list<Patron> donars;
-    list<Patron> nor_donars;
-    list<Patron>::iterator iter;
-    Patron dos;
-    int number;
-        cout << "Enter the number of donars." << endl;
-    cin >> number ;    
-    for (int i = 0; i < number; i++)  {         
-        cin.get();
-        cout << "Enter donar #" << i << "'s name: ";
-        getline(cin, dos.name);
-        cout << "Enter donar #" << i << "'s money: ";
-        cin >> dos.money;
-        donars.push_back(dos);
-    }
-    iter = stable_partition(donars.begin(), donars.end(), greater10000);
-    nor_donars.splice(nor_donars.begin(), donars, iter, donars.end());
-    cout << "\nGrand Parions:\n";
-    if (donars.empty()) cout << "none.\n";    
-    while (!donars.empty()){
-        dos = donars.front();
-        cout << dos.name << "\t" << dos.money << endl;
-        donars.pop_front();
-    }
-     cout << "\nParions:\n";
-    if (nor_donars.empty()) cout << "none.\n";    
-    while (!nor_donars.empty()){
-        dos = nor_donars.front();
-        cout << dos.name << "\t" << dos.money << endl;
-        nor_donars.pop_front();
-    }
+//     list<Patron> donars;
+//     list<Patron> nor_donars;
+//     list<Patron>::iterator iter;
+//     Patron dos;
+//     int number;
+//         cout << "Enter the number of donars." << endl;
+//     cin >> number ;    
+//     for (int i = 0; i < number; i++)  {         
+//         cin.get();
+//         cout << "Enter donar #" << i << "'s name: ";
+//         getline(cin, dos.name);
+//         cout << "Enter donar #" << i << "'s money: ";
+//         cin >> dos.money;
+//         donars.push_back(dos);
+//     }
+//     iter = stable_partition(donars.begin(), donars.end(), greater10000);
+//     nor_donars.splice(nor_donars.begin(), donars, iter, donars.end());
+//     cout << "\nGrand Parions:\n";
+//     if (donars.empty()) cout << "none.\n";    
+//     while (!donars.empty()){
+//         dos = donars.front();
+//         cout << dos.name << "\t" << dos.money << endl;
+//         donars.pop_front();
+//     }
+//      cout << "\nParions:\n";
+//     if (nor_donars.empty()) cout << "none.\n";    
+//     while (!nor_donars.empty()){
+//         dos = nor_donars.front();
+//         cout << dos.name << "\t" << dos.money << endl;
+//         nor_donars.pop_front();
+//     }
     //
     longline(7);
-
+    //7
+    string word;
+    int vowels(0), vonsonants(0), others(0);
+    cout << "Enter some words (q to quit):" << endl;
+    cin >> word;
+    while (cin >> word && word != "q")    {
+        for (char c: word) {
+            if (isalpha(c)) {
+                if (c == 'b' || c == 'p' || c == 'm' || c == 'f' ||  c == 'd' ||
+                    c == 't' || c == 'n' || c == 'l' )  vowels++;
+                else if (c == 'a' || c == 'e' || c == 'i' || c == 'o' ||
+                         c == 'u' || c == 'v') vonsonants++;
+                else others++;                
+            }
+        }  
+    }
+    cout << vowels << " words beginning with vowels\n"
+        << vonsonants << " words beginning with consonants\n"
+        << others << " others.\n";
 
     system("pause");
 
