@@ -20,63 +20,63 @@ void main()
     showtitle();
     longline(1);
   // 1
-//   char ch;
-//   string buffer("");
-//   cout << "Enter some letters within Upper & Lowwer and quit with '@'\n";
-//   cin.read(&ch, 1);
-//   while (ch != '@') {
-//     if (!(isdigit(ch))) {
-//       if (isupper(ch)) ch = tolower(ch);
-//       buffer += ch;
-//     }    
-//     cin.read(&ch, 1);
-//   }
-//   cout << endl << buffer;
+   char ch;
+   string buffer("");
+   cout << "Enter some letters within Upper & Lowwer and quit with '@'\n";
+   cin.read(&ch, 1);
+   while (ch != '@') {
+     if (!(isdigit(ch))) {
+       if (isupper(ch)) ch = tolower(ch);
+       buffer += ch;
+     }    
+     cin.read(&ch, 1);
+   }
+   cout << endl << buffer;
   // cctype 库函数 if条件嵌套
     longline(2);
   //2
-//     double donation(0.0), sum(0.0);
-//     int num(0), higher(0);
-//      array<double ,kMAX_NUM> money;
-//      money.fill(0.0);
-//       cout << "Enter at most" << kMAX_NUM << " donations :\n";
-//      while (cin >> donation)  {
-//     num++;
-//     money.at(num) = donation;
-//     sum += donation;
-//   }
-//   donation = sum / num;
-//   for (int i = 0; i < num; i++) {
-//     if(money.at(i) >= donation) higher++;    
-//   } 
-//   cout << "Total " << num << " donations : " << sum << endl
-//     << "There are " << higher 
-//     << " donations higher than the average " << donation << endl;
+    double donation(0.0), sum(0.0);
+    int num(0), higher(0);
+    array<double ,kMAX_NUM> money;
+    money.fill(0.0);
+    cout << "Enter at most" << kMAX_NUM << " donations :\n";
+    while (cin >> donation)  {
+        num++;
+        money.at(num) = donation;
+        sum += donation;
+    }
+    donation = sum / num;
+    for (int i = 0; i < num; i++) {
+        if(money.at(i) >= donation) higher++;    
+    } 
+    cout << "Total " << num << " donations : " << sum << endl
+        << "There are " << higher 
+        << " donations higher than the average " << donation << endl;
   // cin 条件判断 识别数字..
     longline(3);
     //3
-  //  char chh;
-  //  string option("");
-  //  cout << "Please enter one of the following choices:\n"
-  //     << "c) carnivore        p) pianist \n"
-  //     << "t) tree             g) game \n";
-  //  while (cin.get(chh)) {
-  //      switch (chh)  {
-  //          case 'c': option = "carnivore" ; break;
-  //          case 'p': option = "pianist"  ; break;
-  //          case 't': option = "tree" ; break;
-  //          case 'g': option = "game" ; break;
-  //          default:  break; 
-  //      }
-  //      if (!option.empty()) break;
-  //      cout << "Please enter a c, p, t, or g:";
-  //      cin.get();
-  //}
-  //  cout << "A maple is a " << option << endl;
+    char chh;
+    string option("");
+    cout << "Please enter one of the following choices:\n"
+       << "c) carnivore        p) pianist \n"
+       << "t) tree             g) game \n";
+    while (cin.get(chh)) {
+        switch (chh)  {
+            case 'c': option = "carnivore" ; break;
+            case 'p': option = "pianist"  ; break;
+            case 't': option = "tree" ; break;
+            case 'g': option = "game" ; break;
+            default:  break; 
+        }
+        if (!option.empty()) break;
+        cout << "Please enter a c, p, t, or g:";
+        cin.get();
+  }
+    cout << "A maple is a " << option << endl;
     //
     longline(4);
     //4
- /*   char chhh;
+    char chhh;
     Bop bop_Sue[kPobNum]=
          {{"Sue Horpkings", "CTO_OnChiefe",     "D-girl",     2},
          {"Wimp Macho",    "Junior Programer", "HeilBOY",    1},
@@ -121,78 +121,78 @@ void main()
         }
         cout << "\nNext choice:";
         cin.clear();
-    }*/
+    }
     //蛋疼的vs 不支持 arrray 列表式初始化
     longline(5);
     //5
-    //double incomes(0.0), tax (0.0);
-    //cout << " Neutronia need Tax! \n"
-    //     << " Show me your money: \n";
-    ////cin.get();
-    //while(cin>>incomes) {
-    //    tax = ((incomes > 5000) * 0.1 
-    //                * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
-    //           + ((incomes > 15000) * 0.15 
-    //                * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
-    //           + ((incomes > 35000) * 0.2 
-    //                * (incomes - 35000));  
-    //    cout << "Your tax : " << tax << endl;
-    //}
+    double incomes(0.0), tax (0.0);
+    cout << " Neutronia need Tax! \n"
+         << " Show me your money: \n";
+    //cin.get();
+    while(cin>>incomes) {
+        tax = ((incomes > 5000) * 0.1 
+                    * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
+               + ((incomes > 15000) * 0.15 
+                    * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
+               + ((incomes > 35000) * 0.2 
+                    * (incomes - 35000));  
+        cout << "Your tax : " << tax << endl;
+    }
     //条件转向 嵌套的几种方法  if 嵌套, switch的变形, 正则表达, ? :嵌套 etc
     longline(6);
     //6
-//     list<Patron> donars;
-//     list<Patron> nor_donars;
-//     list<Patron>::iterator iter;
-//     Patron dos;
-//     int number;
-//         cout << "Enter the number of donars." << endl;
-//     cin >> number ;    
-//     for (int i = 0; i < number; i++)  {         
-//         cin.get();
-//         cout << "Enter donar #" << i << "'s name: ";
-//         getline(cin, dos.name);
-//         cout << "Enter donar #" << i << "'s money: ";
-//         cin >> dos.money;
-//         donars.push_back(dos);
-//     }
-//     iter = stable_partition(donars.begin(), donars.end(), greater10000);
-//     nor_donars.splice(nor_donars.begin(), donars, iter, donars.end());
-//     cout << "\nGrand Parions:\n";
-//     if (donars.empty()) cout << "none.\n";    
-//     while (!donars.empty()){
-//         dos = donars.front();
-//         cout << dos.name << "\t" << dos.money << endl;
-//         donars.pop_front();
-//     }
-//      cout << "\nParions:\n";
-//     if (nor_donars.empty()) cout << "none.\n";    
-//     while (!nor_donars.empty()){
-//         dos = nor_donars.front();
-//         cout << dos.name << "\t" << dos.money << endl;
-//         nor_donars.pop_front();
-//     }
+     list<Patron> donars;
+     list<Patron> nor_donars;
+     list<Patron>::iterator iter;
+     Patron dos;
+     int number;
+         cout << "Enter the number of donars." << endl;
+     cin >> number ;    
+     for (int i = 0; i < number; i++)  {         
+         cin.get();
+         cout << "Enter donar #" << i << "'s name: ";
+         getline(cin, dos.name);
+         cout << "Enter donar #" << i << "'s money: ";
+         cin >> dos.money;
+         donars.push_back(dos);
+     }
+     iter = stable_partition(donars.begin(), donars.end(), greater10000);
+     nor_donars.splice(nor_donars.begin(), donars, iter, donars.end());
+     cout << "\nGrand Parions:\n";
+     if (donars.empty()) cout << "none.\n";    
+     while (!donars.empty()){
+         dos = donars.front();
+         cout << dos.name << "\t" << dos.money << endl;
+         donars.pop_front();
+     }
+      cout << "\nParions:\n";
+     if (nor_donars.empty()) cout << "none.\n";    
+     while (!nor_donars.empty()){
+         dos = nor_donars.front();
+         cout << dos.name << "\t" << dos.money << endl;
+         nor_donars.pop_front();
+     }
     //STL 模版算法 与 list操作
     longline(7);
     //7
-//     string word;
-//     int vowels(0), vonsonants(0), others(0);
-//     cout << "Enter some words (q to quit):" << endl;
-//     cin >> word;
-//     while (cin >> word && word != "q")    {
-//         for (char c: word) {
-//             if (isalpha(c)) {
-//                 if (c == 'b' || c == 'p' || c == 'm' || c == 'f' ||
-//                     c == 'd' || c == 't' || c == 'n' || c == 'l' )  vowels++;
-//                 else if (c == 'a' || c == 'e' || c == 'i' ||
-//                          c == 'o' || c == 'u' || c == 'v') vonsonants++;
-//                 else others++;                
-//             }
-//         }  
-//     }
-//     cout << vowels << " words beginning with vowels\n"
-//         << vonsonants << " words beginning with consonants\n"
-//         << others << " others.\n";
+     string word;
+     int vowels(0), vonsonants(0), others(0);
+     cout << "Enter some words (q to quit):" << endl;
+     cin >> word;
+     while (cin >> word && word != "q")    {
+         for (char c: word) {
+             if (isalpha(c)) {
+                 if (c == 'b' || c == 'p' || c == 'm' || c == 'f' ||
+                     c == 'd' || c == 't' || c == 'n' || c == 'l' )  vowels++;
+                 else if (c == 'a' || c == 'e' || c == 'i' ||
+                          c == 'o' || c == 'u' || c == 'v') vonsonants++;
+                 else others++;                
+             }
+         }  
+     }
+     cout << vowels << " words beginning with vowels\n"
+         << vonsonants << " words beginning with consonants\n"
+         << others << " others.\n";
     // 条件嵌套 注意条件的范围和逻辑
     longline(8);
 //8
