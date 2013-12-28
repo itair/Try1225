@@ -9,6 +9,7 @@
 #include <list>
 #include <algorithm>
 #include <numeric>
+#include <fstream>
 
 using namespace std;
 
@@ -47,8 +48,7 @@ void main()
 //   donation = sum / num;
 //   for (int i = 0; i < num; i++) {
 //     if(money.at(i) >= donation) higher++;    
-//   }
-// 
+//   } 
 //   cout << "Total " << num << " donations : " << sum << endl
 //     << "There are " << higher 
 //     << " donations higher than the average " << donation << endl;
@@ -130,10 +130,12 @@ void main()
     //     << " Show me your money: \n";
     ////cin.get();
     //while(cin>>incomes) {
-    //    tax = ((incomes > 5000) * 0.1 * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
-    //           + ((incomes > 15000) * 0.15 * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
-    //           + ((incomes > 35000) * 0.2 * (incomes - 35000));  
-    // //tax += incomes < 5000 ?  0 : ( incomes < 15001 ? ( incomes - 5000)*0.1 :(incomes < 35001 ? (incomes-15000)*
+    //    tax = ((incomes > 5000) * 0.1 
+    //                * ((incomes > 15000) ? 10000 : (incomes - 5000))) 
+    //           + ((incomes > 15000) * 0.15 
+    //                * ((incomes > 35000) ? 20000 : (incomes - 15000))) 
+    //           + ((incomes > 35000) * 0.2 
+    //                * (incomes - 35000));  
     //    cout << "Your tax : " << tax << endl;
     //}
     //条件转向 嵌套的几种方法  if 嵌套, switch的变形, 正则表达, ? :嵌套 etc
@@ -170,28 +172,48 @@ void main()
 //         cout << dos.name << "\t" << dos.money << endl;
 //         nor_donars.pop_front();
 //     }
-    //
+    //STL 模版算法 与 list操作
     longline(7);
     //7
-    string word;
-    int vowels(0), vonsonants(0), others(0);
-    cout << "Enter some words (q to quit):" << endl;
-    cin >> word;
-    while (cin >> word && word != "q")    {
-        for (char c: word) {
-            if (isalpha(c)) {
-                if (c == 'b' || c == 'p' || c == 'm' || c == 'f' ||  c == 'd' ||
-                    c == 't' || c == 'n' || c == 'l' )  vowels++;
-                else if (c == 'a' || c == 'e' || c == 'i' || c == 'o' ||
-                         c == 'u' || c == 'v') vonsonants++;
-                else others++;                
-            }
-        }  
+//     string word;
+//     int vowels(0), vonsonants(0), others(0);
+//     cout << "Enter some words (q to quit):" << endl;
+//     cin >> word;
+//     while (cin >> word && word != "q")    {
+//         for (char c: word) {
+//             if (isalpha(c)) {
+//                 if (c == 'b' || c == 'p' || c == 'm' || c == 'f' ||
+//                     c == 'd' || c == 't' || c == 'n' || c == 'l' )  vowels++;
+//                 else if (c == 'a' || c == 'e' || c == 'i' ||
+//                          c == 'o' || c == 'u' || c == 'v') vonsonants++;
+//                 else others++;                
+//             }
+//         }  
+//     }
+//     cout << vowels << " words beginning with vowels\n"
+//         << vonsonants << " words beginning with consonants\n"
+//         << others << " others.\n";
+    // 条件嵌套 注意条件的范围和逻辑
+    longline(8);
+//8
+    char chh;
+    int count(0);
+    ifstream pf;
+    pf.open("datain.txt");
+    if(!pf.is_open()) { 
+        cout << "datain.txt 打开错误!\n";
+        system("pause");
+        exit(EXIT_FAILURE);
     }
-    cout << vowels << " words beginning with vowels\n"
-        << vonsonants << " words beginning with consonants\n"
-        << others << " others.\n";
-
+    //pf >> chh; 
+    while (pf.read(&chh, 1) && pf.good()) {
+        count++ ;
+        cout << chh ;        
+    }
+    pf.close();
+    cout << "\nTolal char : " << count <<endl;
+    //
+    longline();
     system("pause");
 
 }

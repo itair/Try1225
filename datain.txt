@@ -1,0 +1,3 @@
+This is datain.txt
+If you can see these sentences on your screen,
+that means your program had open this txt file.
